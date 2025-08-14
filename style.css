@@ -1,0 +1,159 @@
+/* style.css */
+* {
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    background: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: #FFF5F2;
+    padding: 20px 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Progress Bar */
+.progressbar {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.progressbar::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background: #d3d3d3;
+    z-index: -1;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+.progress {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    background: #253900;
+    z-index: -1;
+    transition: 0.3s;
+}
+
+.progress-step {
+    width: 20px;
+    height: 20px;
+    background: #d3d3d3;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.progress-step::after {
+    content: attr(data-title);
+    position: absolute;
+    top: 30px;
+    font-size: 12px;
+    color: #666;
+}
+
+.progress-step.active {
+    background: #253900;
+}
+
+.progress-step.finish {
+    background: #253900;
+}
+
+/* Form Steps */
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.btn {
+    background: #253900;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:disabled {
+    background: #ccc;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+h1 {
+    font-size: 30px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Animate steps sliding left/right */
+.form-step {
+    display: none;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease;
+    position: absolute;
+    width: 100%;
+}
+
+.form-step.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    position: relative;
+}
+
+/* For sliding back */
+.form-step.previous {
+    display: block;
+    opacity: 1;
+    transform: translateX(-100%);
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-size: 10;
+}
